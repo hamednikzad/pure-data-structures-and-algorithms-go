@@ -1,25 +1,25 @@
-package arraylist
+package genericlist
 
 import (
 	"errors"
 	"fmt"
 )
 
-type ArrayList struct {
-	items    []interface{}
+type List[T comparable] struct {
+	items    []T
 	Count    int
 	Capacity int
 }
 
-func New(capacity int) *ArrayList {
-	aList := &ArrayList{}
+func New[T comparable](capacity int) *List[T] {
+	list := &List[T]{}
 	if capacity > 0 {
-		aList.items = make([]interface{}, capacity)
+		list.items = make([]T, capacity)
 	}
-	return aList
+	return list
 }
 
-func (list *ArrayList) Print() {
+func (list *List[T]) Print() {
 	fmt.Printf("Capacity:%d, Count:%d\t", list.Capacity, list.Count)
 	for i := 0; i < list.Count; i++ {
 		sep := ", "
@@ -31,14 +31,14 @@ func (list *ArrayList) Print() {
 	fmt.Println()
 }
 
-func (list *ArrayList) GetValue(index int) interface{} {
+func (list *List[T]) GetValue(index int) T {
 	if index < 0 || index >= list.Count {
-		return nil
+		return *new(T)
 	}
 	return list.items[index]
 }
 
-func (list *ArrayList) Add(value interface{}) {
+func (list *List[T]) Add(value T) {
 	if list.Count == len(list.items) {
 		list.checkCapacity(list.Count + 1)
 	}
@@ -47,7 +47,7 @@ func (list *ArrayList) Add(value interface{}) {
 	list.Count++
 }
 
-func (list *ArrayList) checkCapacity(size int) {
+func (list *List[T]) checkCapacity(size int) {
 	if len(list.items) >= size {
 		return
 	}
@@ -66,7 +66,7 @@ func (list *ArrayList) checkCapacity(size int) {
 	list.changeCapacity(newCapacity)
 }
 
-func (list *ArrayList) changeCapacity(newCapacity int) {
+func (list *List[T]) changeCapacity(newCapacity int) {
 	if newCapacity <= list.Count {
 		panic("Capacity out of range")
 	}
@@ -76,7 +76,7 @@ func (list *ArrayList) changeCapacity(newCapacity int) {
 	}
 
 	if newCapacity > 0 {
-		newItems := make([]interface{}, newCapacity)
+		newItems := make([]T, newCapacity)
 		if list.Count > 0 {
 			for i := 0; i < list.Count; i++ {
 				newItems[i] = list.items[i]
@@ -84,23 +84,23 @@ func (list *ArrayList) changeCapacity(newCapacity int) {
 		}
 		list.items = newItems
 	} else {
-		list.items = make([]interface{}, 0)
+		list.items = make([]T, 0)
 	}
 
 	list.Capacity = newCapacity
 }
 
-func (list *ArrayList) Clear() {
+func (list *List[T]) Clear() {
 	if list.Count <= 0 {
 		return
 	}
 	for i := 0; i < list.Count; i++ {
-		list.items[i] = nil
+		list.items[i] = *new(T)
 	}
 	list.Count = 0
 }
 
-func (list *ArrayList) Contains(item interface{}) bool {
+func (list *List[T]) Contains(item T) bool {
 	for i := 0; i < list.Count; i++ {
 		if list.items[i] == item {
 			return true
@@ -124,7 +124,7 @@ func (list *ArrayList) Contains(item interface{}) bool {
 	}*/
 }
 
-func (list *ArrayList) IndexOf(item interface{}) int {
+func (list *List[T]) IndexOf(item T) int {
 	for i := 0; i < list.Count; i++ {
 		if list.items[i] == item {
 			return i
@@ -133,13 +133,13 @@ func (list *ArrayList) IndexOf(item interface{}) int {
 	return -1
 }
 
-func copyArray(array []interface{}, srcIndex, dstIndex int) {
+func copyArray[T comparable](array []T, srcIndex, dstIndex int) {
 	for i := dstIndex; i > srcIndex; i-- {
 		array[i] = array[i-1]
 	}
 }
 
-func (list *ArrayList) Insert(index int, item interface{}) error {
+func (list *List[T]) Insert(index int, item T) error {
 	if index < 0 || index > list.Count {
 		return errors.New("index out of range")
 	}
@@ -148,9 +148,6 @@ func (list *ArrayList) Insert(index int, item interface{}) error {
 	}
 	if index < list.Count {
 		copyArray(list.items, index, list.Count)
-		//for i := list.Count; i > index; i-- {
-		//	list.items[i] = list.items[i-1]
-		//}
 	}
 	list.items[index] = item
 	list.Count++
