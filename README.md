@@ -5,3 +5,4 @@ Data structures and algorithms implementation in pure Golang!
 - Lists:
     - Array List
     - Generic List (C# style list!)
+    - Singly Linked List

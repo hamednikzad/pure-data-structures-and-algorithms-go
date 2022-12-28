@@ -20,7 +20,7 @@ func New[T comparable](capacity int) *List[T] {
 }
 
 func (list *List[T]) Print() {
-	fmt.Printf("Capacity:%d, Count:%d\t", list.Capacity, list.Count)
+	fmt.Printf("Capacity:%d, Count:%d =>\t", list.Capacity, list.Count)
 	for i := 0; i < list.Count; i++ {
 		sep := ", "
 		if i == list.Count-1 {
@@ -107,21 +107,6 @@ func (list *List[T]) Contains(item T) bool {
 		}
 	}
 	return false
-	/*if item == nil {
-		for i := 0; i < list.Count; i++ {
-			if list.items[i] == nil {
-				return true
-			}
-		}
-		return false
-	}else{
-		for i := 0; i < list.Count; i++ {
-			if list.items[i] == item {
-				return true
-			}
-		}
-		return false
-	}*/
 }
 
 func (list *List[T]) IndexOf(item T) int {
