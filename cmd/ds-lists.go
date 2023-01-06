@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/hamednikzad/pure-data-structures-and-algorithms-go/pkg/ds/lists/arraylist"
+	"github.com/hamednikzad/pure-data-structures-and-algorithms-go/pkg/ds/lists/doublylinkedlist"
 	genericlist "github.com/hamednikzad/pure-data-structures-and-algorithms-go/pkg/ds/lists/list"
 	"github.com/hamednikzad/pure-data-structures-and-algorithms-go/pkg/ds/lists/singlylinkedlist"
 )
@@ -64,8 +65,28 @@ func singlyLinkedListUsage() {
 	ll.Print()
 }
 
+func doublyLinkedListUsage() {
+	var ll = doublylinkedlist.New[int]()
+	ll.AddLast(5)
+	ll.AddLast(2)
+	ll.AddLast(3)
+
+	ll.Print()
+	fmt.Println("********************")
+	ll.Traverse(fmt.Print)
+	fmt.Println()
+	fmt.Println("********************")
+	var last = ll.GetValueAtIndex(2)
+	fmt.Println("Last:\t", last)
+
+	fmt.Println("********************")
+	ll.Remove(1)
+	ll.Print()
+}
+
 func ListUsage() {
 	//arrayListUsage()
 	//genericListUsage()
-	singlyLinkedListUsage()
+	//singlyLinkedListUsage()
+	doublyLinkedListUsage()
 }
