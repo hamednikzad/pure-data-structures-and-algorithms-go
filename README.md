@@ -6,5 +6,7 @@ Data structures and algorithms implementation in pure Golang!
   - Array List
   - Generic List (C# style list!)
   - Singly Linked List
+  - Doubly Linked List
+  - Sorted Linked List
 - Queues
   - LinkedListQueue (SinglyLinkedList Implementation)

@@ -30,7 +30,7 @@ func (list *SinglyLinkedList[T]) AddFirst(value T) {
 
 	if list.head == nil {
 		list.head = newNode
-		list.head = newNode
+		list.tail = newNode
 		list.Count++
 		return
 	}

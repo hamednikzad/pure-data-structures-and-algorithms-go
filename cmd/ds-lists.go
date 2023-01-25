@@ -6,6 +6,7 @@ import (
 	"github.com/hamednikzad/pure-data-structures-and-algorithms-go/pkg/ds/lists/doublylinkedlist"
 	genericlist "github.com/hamednikzad/pure-data-structures-and-algorithms-go/pkg/ds/lists/list"
 	"github.com/hamednikzad/pure-data-structures-and-algorithms-go/pkg/ds/lists/singlylinkedlist"
+	"github.com/hamednikzad/pure-data-structures-and-algorithms-go/pkg/ds/lists/sortedlinkedlist"
 	"github.com/hamednikzad/pure-data-structures-and-algorithms-go/pkg/ds/queues"
 )
 
@@ -85,6 +86,25 @@ func doublyLinkedListUsage() {
 	ll.Print()
 }
 
+func sortedLinkedListUsage() {
+	var ll = sortedlinkedlist.New[int]()
+	ll.Add(5)
+	ll.Add(2)
+	ll.Add(3)
+
+	ll.Print()
+	fmt.Println("********************")
+	ll.Traverse(fmt.Print)
+	fmt.Println()
+	fmt.Println("********************")
+	var last = ll.GetValueAtIndex(2)
+	fmt.Println("Last:\t", last)
+
+	fmt.Println("********************")
+	ll.RemoveValue(2)
+	ll.Print()
+}
+
 func queueListUsage() {
 	var queue = queues.New[int]()
 	queue.Enqueue(1)
@@ -119,5 +139,6 @@ func ListUsage() {
 	//genericListUsage()
 	//singlyLinkedListUsage()
 	//doublyLinkedListUsage()
-	queueListUsage()
+	//queueListUsage()
+	sortedLinkedListUsage()
 }
