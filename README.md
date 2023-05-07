@@ -10,3 +10,5 @@ Data structures and algorithms implementation in pure Golang!
   - Sorted Linked List
 - Queues
   - LinkedListQueue (SinglyLinkedList Implementation)
+- Trees
+  - Binary Search Tree
