@@ -6,15 +6,17 @@ import (
 )
 
 type LinkedListQueue[T comparable] struct {
-	list  *singlylinkedlist.SinglyLinkedList[T]
-	Count int
+	list *singlylinkedlist.SinglyLinkedList[T]
 }
 
 func New[T comparable]() *LinkedListQueue[T] {
 	queue := &LinkedListQueue[T]{}
 	queue.list = singlylinkedlist.New[T]()
-	queue.Count = 0
 	return queue
+}
+
+func (queue *LinkedListQueue[T]) GetCount() int {
+	return queue.list.Count
 }
 
 func (queue *LinkedListQueue[T]) IsEmpty() bool {
@@ -34,6 +36,15 @@ func (queue *LinkedListQueue[T]) Dequeue() (T, error) {
 	queue.list.RemoveFirst()
 
 	return value, nil
+}
+
+func (queue *LinkedListQueue[T]) Remove(value T) error {
+	if queue.IsEmpty() {
+		return errors.New("the Queue is empty")
+	}
+
+	queue.list.RemoveValue(value)
+	return nil
 }
 
 func (queue *LinkedListQueue[T]) Peek() (T, error) {
