@@ -38,13 +38,12 @@ func (queue *LinkedListQueue[T]) Dequeue() (T, error) {
 	return value, nil
 }
 
-func (queue *LinkedListQueue[T]) Remove(value T) error {
+func (queue *LinkedListQueue[T]) Remove(value T) bool {
 	if queue.IsEmpty() {
-		return errors.New("the Queue is empty")
+		return false
 	}
 
-	queue.list.RemoveValue(value)
-	return nil
+	return queue.list.RemoveValue(value)
 }
 
 func (queue *LinkedListQueue[T]) Peek() (T, error) {
