@@ -13,7 +13,7 @@ func queueListUsage() {
 
 	queue.Print()
 	fmt.Println("********************")
-	err, first := queue.Peek()
+	first, err := queue.Peek()
 	if err != nil {
 		fmt.Println("Error in Calling Peek: ", err.Error())
 	} else {
@@ -23,7 +23,7 @@ func queueListUsage() {
 
 	fmt.Println("Iterating over Queue")
 	for !queue.IsEmpty() {
-		err, item := queue.Dequeue()
+		item, err := queue.Dequeue()
 		if err != nil {
 			fmt.Println("Error in Calling Dequeue: ", err.Error())
 		} else {
