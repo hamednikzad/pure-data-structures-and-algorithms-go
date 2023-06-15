@@ -56,6 +56,10 @@ func (queue *LinkedListQueue[T]) Peek() (T, error) {
 	return value, nil
 }
 
+func (queue *LinkedListQueue[T]) Traverse(action func(a ...any) (n int, err error)) {
+	queue.Traverse(action)
+}
+
 func (queue *LinkedListQueue[T]) Print() {
 	queue.list.Print()
 }
