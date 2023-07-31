@@ -60,7 +60,7 @@ func avlUsage() {
 	//b.TraversePreOrder()
 }
 
-func TreeUsage() {
-	//bstUsage()
-	avlUsage()
+func treeUsage() {
+	bstUsage()
+	//avlUsage()
 }

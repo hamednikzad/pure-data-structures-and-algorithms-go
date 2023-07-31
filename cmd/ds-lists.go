@@ -104,7 +104,7 @@ func sortedLinkedListUsage() {
 	ll.Print()
 }
 
-func ListUsage() {
+func listUsage() {
 	//arrayListUsage()
 	//genericListUsage()
 	//singlyLinkedListUsage()
