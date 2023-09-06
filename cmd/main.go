@@ -2,6 +2,7 @@ package main
 
 func main() {
 	//listUsage()
-	stackUsage()
+	//stackUsage()
 	//treeUsage()
+	bubbleSort()
 }
