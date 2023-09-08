@@ -4,5 +4,6 @@ func main() {
 	//listUsage()
 	//stackUsage()
 	//treeUsage()
-	bubbleSort()
+	//bubbleSort()
+	insertionSort()
 }

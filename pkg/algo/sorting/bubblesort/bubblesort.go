@@ -2,11 +2,7 @@ package bubblesort
 
 import "github.com/hamednikzad/pure-data-structures-and-algorithms-go/pkg/ds"
 
-type Numeric interface {
-	ds.Numeric
-}
-
-func SortAscending[T Numeric](array []T) []T {
+func SortAscending[T ds.Numeric](array []T) []T {
 	swapped := true
 	for i := len(array) - 1; i >= 0 && swapped; i-- {
 		swapped = false
@@ -21,7 +17,7 @@ func SortAscending[T Numeric](array []T) []T {
 	return array
 }
 
-func SortDescending[T Numeric](array []T) []T {
+func SortDescending[T ds.Numeric](array []T) []T {
 	swapped := true
 	for i := len(array) - 1; i >= 0 && swapped; i-- {
 		swapped = false
