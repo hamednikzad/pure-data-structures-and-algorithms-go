@@ -5,5 +5,6 @@ func main() {
 	//stackUsage()
 	//treeUsage()
 	//bubbleSort()
-	insertionSort()
+	//insertionSort()
+	selectionSort()
 }
