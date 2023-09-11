@@ -6,5 +6,6 @@ func main() {
 	//treeUsage()
 	//bubbleSort()
 	//insertionSort()
-	selectionSort()
+	//selectionSort()
+	shellSort()
 }

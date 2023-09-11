@@ -5,6 +5,7 @@ import (
 	"github.com/hamednikzad/pure-data-structures-and-algorithms-go/pkg/algo/sorting/bubblesort"
 	"github.com/hamednikzad/pure-data-structures-and-algorithms-go/pkg/algo/sorting/insertionsort"
 	"github.com/hamednikzad/pure-data-structures-and-algorithms-go/pkg/algo/sorting/selectionsort"
+	"github.com/hamednikzad/pure-data-structures-and-algorithms-go/pkg/algo/sorting/shellsort"
 )
 
 func print(title string, arr []int) {
@@ -48,5 +49,15 @@ func selectionSort() {
 	print("Ascending", ascending)
 
 	descending := selectionsort.SortDescending(array)
+	print("Descending", descending)
+}
+
+func shellSort() {
+	fmt.Println("shellSort")
+	array := makeArray()
+	ascending := shellsort.SortAscending(array)
+	print("Ascending", ascending)
+
+	descending := shellsort.SortDescending(array)
 	print("Descending", descending)
 }
