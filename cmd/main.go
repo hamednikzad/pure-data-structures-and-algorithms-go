@@ -3,9 +3,9 @@ package main
 func main() {
 	//listUsage()
 	//stackUsage()
-	//treeUsage()
+	treeUsage()
 	//bubbleSort()
 	//insertionSort()
 	//selectionSort()
-	shellSort()
+	//shellSort()
 }

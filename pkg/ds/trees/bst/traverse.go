@@ -3,6 +3,7 @@ package bst
 import (
 	"fmt"
 	"github.com/hamednikzad/pure-data-structures-and-algorithms-go/pkg/ds"
+	"github.com/hamednikzad/pure-data-structures-and-algorithms-go/pkg/ds/queues"
 )
 
 // TraversePreOrder DLR
@@ -23,6 +24,13 @@ func (b *Bst[T]) TraverseInOrder() {
 func (b *Bst[T]) TraversePostOrder() {
 	fmt.Printf("TraversePostOrder(LRD) with Depth {%d}: ", b.GetDepth())
 	traversePostOrder(b.Root)
+	fmt.Println()
+}
+
+// TraverseLevelOrder Level
+func (b *Bst[T]) TraverseLevelOrder() {
+	fmt.Printf("TraverseLevelOrder(LRD) with Depth {%d}: ", b.GetDepth())
+	traverseLevelOrder(b.Root)
 	fmt.Println()
 }
 
@@ -63,6 +71,27 @@ func traversePostOrder[T ds.Numeric](parent *node[T]) {
 	traversePostOrder(parent.Left)
 	traversePostOrder(parent.Right)
 	fmt.Print(parent.Data, " ")
+}
+
+func traverseLevelOrder[T ds.Numeric](parent *node[T]) {
+	if parent == nil {
+		return
+	}
+	q := queues.New[*node[T]]()
+	q.Enqueue(parent)
+
+	for !q.IsEmpty() {
+		r, _ := q.Dequeue()
+		fmt.Print(r.Data, " ")
+
+		if r.Left != nil {
+			q.Enqueue(r.Left)
+		}
+
+		if r.Right != nil {
+			q.Enqueue(r.Right)
+		}
+	}
 }
 
 func (b *Bst[T]) GetDepth() int {

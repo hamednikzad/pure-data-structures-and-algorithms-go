@@ -24,6 +24,7 @@ func bstUsage() {
 	b.TraversePreOrder()
 	b.TraverseInOrder()
 	b.TraversePostOrder()
+	b.TraverseLevelOrder()
 
 	b.Remove(13)
 	min, _ = b.Min()

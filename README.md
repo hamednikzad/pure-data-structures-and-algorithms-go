@@ -15,3 +15,12 @@ Data structures and algorithms implementation in pure Golang!
 - Trees
   - Binary Search Tree
   - AVL
+  
+- ### Sorting algorithms that have been implemented so far:
+  - Bubble Sort
+  - Selection Sort
+  - Insertion Sort
+  - Shell Sort
+  
+### Encoding algorithms that have been implemented so far:
+  - Rle (Run-length encoding)
