@@ -20,10 +20,12 @@ Data structures and algorithms implementation in pure Golang!
   - Bubble Sort
   - Selection Sort
   - Insertion Sort
-  - Shell Sort
+  - ShellSort
   
 ### Encoding algorithms that have been implemented so far:
   - Rle (Run-length encoding)
 
 ### Concurrent Programming
   - Mutex
+  - Sync
+  - Context
