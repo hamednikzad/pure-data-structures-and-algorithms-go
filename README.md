@@ -24,3 +24,6 @@ Data structures and algorithms implementation in pure Golang!
   
 ### Encoding algorithms that have been implemented so far:
   - Rle (Run-length encoding)
+
+### Concurrent Programming
+  - Mutex

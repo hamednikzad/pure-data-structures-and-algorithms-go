@@ -8,5 +8,7 @@ func main() {
 	//insertionSort()
 	//selectionSort()
 	//shellSort()
-	rle()
+	//rle()
+	p := &concurrentProgramming{}
+	p.mutexes()
 }
