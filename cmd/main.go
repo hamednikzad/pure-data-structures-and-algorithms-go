@@ -10,5 +10,6 @@ func main() {
 	//shellSort()
 	//rle()
 	p := &concurrentProgramming{}
-	p.mutexes()
+	//p.mutexes()
+	p.syncOnce()
 }
